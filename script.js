@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const downloadBtn = document.getElementById('downloadBtn');
   const goBackBtn = document.getElementById('goBackBtn');
 
-  // Handle form submission
+
+
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -16,21 +18,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const mom = document.getElementById('momName').value;
     const message = document.getElementById('message').value;
 
+    
     dearMom.textContent = `Dear ${mom},`;
     cardMessage.textContent = message;
     loveFrom.textContent = `Love, ${name}`;
 
+
+
     form.style.display = 'none';
-    cardWrapper.style.display = 'block';
+    cardWrapper.style.display = 'flex';
   });
 
-  // Handle go back button
+  
+
   goBackBtn.addEventListener('click', () => {
-    form.style.display = 'flex'; // restoring original inpuit
+    form.style.display = 'flex'; 
     cardWrapper.style.display = 'none';
   });
 
-  // downloading the card
+
   downloadBtn.addEventListener('click', () => {
     downloadBtn.style.display = 'none';
     goBackBtn.style.display = 'none';
@@ -48,8 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const x = (pageWidth - imgWidth) / 2;
       const y = (pageHeight - imgHeight) / 2;
 
+
+
       pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
       pdf.save('mothers-day-card.pdf');
+
+
 
       downloadBtn.style.display = 'inline-block';
       goBackBtn.style.display = 'inline-block';
